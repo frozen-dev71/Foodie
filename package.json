@@ -1,0 +1,33 @@
+{
+  "name": "foodie",
+  "version": "1.0.0",
+  "description": "Recipe application",
+  "default": "index.html",
+  "targets": {
+    "main": false
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berkbeleli/Foodie.git"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
+    "core-js": "^3.25.5",
+    "fractional": "^1.0.0",
+    "fracty": "^1.0.9",
+    "regenerator-runtime": "^0.13.10"
+  },
+  "author": "berkbeleli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berkbeleli/Foodie/issues"
+  },
+  "homepage": "https://github.com/berkbeleli/Foodie#readme"
+}
