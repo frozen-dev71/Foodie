@@ -1,11 +1,11 @@
 import * as model from "./model.js";
 import { MODAL_CLOSE_SEC } from "./config.js";
-import recipeView from "./views/recipeView.js";
-import searchView from "./views/searchView.js";
-import resultsView from "./views/resultsView.js";
-import paginationView from "./views/paginationView.js";
-import bookmarksView from "./views/bookmarksView.js";
-import addRecipeView from "./views/addRecipeView.js";
+import recipeView from "./views/recipeView";
+import searchView from "./views/SearchView";
+import resultsView from "./views/resultsView";
+import paginationView from "./views/paginationView";
+import bookmarksView from "./views/bookmarksView";
+import addRecipeView from "./views/addRecipeView";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";

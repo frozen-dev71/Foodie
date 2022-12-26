@@ -1,5 +1,5 @@
 import View from './View.js';
-import previewView from './previewView.js';
+import previewView from './PreviewView';
 
 class BookmarksView extends View {
   _parentElement = document.querySelector('.bookmarks__list');
