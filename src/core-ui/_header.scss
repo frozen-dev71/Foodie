@@ -27,7 +27,7 @@
   }
   
   .search {
-	background-color: $color-white;
+	background-color: var(--color-grey--2);
 	border-radius: 10rem;
 	display: flex;
 	align-items: center;
@@ -53,12 +53,12 @@
 	  }
   
 	  &::placeholder {
-		color: $color-grey-light-3;
+		color: var(--color-text--3);
 	  }
   
 	  @media only screen and (max-width: $bp-medium) {
 		width: auto;
-  
+		max-width: 14rem;
 		&::placeholder {
 		  color: $color-white;
 		}
