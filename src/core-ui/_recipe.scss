@@ -1,12 +1,28 @@
 .recipe {
-	background-color: $color-grey-light-1;
+	background-color: var(--color-grey--1);
+  
+	.message {
+	  display: none;
+	}
+  
+	&--white {
+	  background-color: var(--color-background);
+  
+	  .message {
+		display: flex;
+	  }
+	}
+  
+	///////////
+	// FIGURE
 	&__fig {
 	  height: 32rem;
 	  position: relative;
+	  // transform: scale(1.04) translateY(-1px);
 	  transform-origin: top;
   
 	  &::before {
-		content: "";
+		content: '';
 		display: block;
 		height: 100%;
 		width: 100%;
@@ -15,8 +31,8 @@
 		left: 0;
 		background-image: linear-gradient(
 		  to right bottom,
-		  $color-grad-1,
-		  $color-grad-2
+		  var(--color-grad-1),
+		  var(--color-grad-2)
 		);
 		opacity: 0.6;
 	  }
@@ -34,7 +50,7 @@
 	  bottom: 0;
 	  left: 50%;
 	  transform: translate(-50%, 20%) skewY(-6deg);
-	  color: $color-white;
+	  color: #fff;
 	  font-weight: 700;
 	  font-size: 3.25rem;
 	  text-transform: uppercase;
@@ -43,14 +59,7 @@
 	  text-align: center;
   
 	  span {
-		-webkit-box-decoration-break: clone;
-		box-decoration-break: clone;
-		padding: 1.3rem 2rem;
-		background-image: linear-gradient(
-		  to right bottom,
-		  $color-grad-1,
-		  $color-grad-2
-		);
+		@include gradient-background-text;
 	  }
   
 	  @media only screen and (max-width: $bp-medium) {
@@ -58,14 +67,16 @@
 	  }
 	}
   
+	///////////
+	// DETAILS
 	&__details {
+	  background-color: var(--color-grey--1);
 	  display: flex;
 	  align-items: center;
 	  padding: 7.5rem 8rem 3.5rem 8rem;
-	  @media only screen and (max-width: $bp-small) {
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
+  
+	  @include respond(tab-port) {
+		padding: 7.5rem 4rem 3.5rem 4rem;
 	  }
 	}
   
@@ -76,20 +87,26 @@
 	  align-items: center;
   
 	  &:not(:last-child) {
-		margin-right: 4.5rem;
+		margin-right: 3rem;
 	  }
 	}
   
 	&__info-icon {
 	  height: 2.35rem;
 	  width: 2.35rem;
-	  fill: $color-primary;
-	  margin-right: 1.15rem;
+	  fill: var(--color-primary);
+	  margin-right: 1rem;
 	}
   
 	&__info-data {
 	  margin-right: 0.5rem;
 	  font-weight: 700;
+	}
+  
+	&__info-text {
+	  @include respond(phone-small) {
+		display: none;
+	  }
 	}
   
 	&__info-buttons {
@@ -99,7 +116,8 @@
 	}
   
 	&__user-generated {
-	  background-color: darken($color-grey-light-2, 2%);
+	  background-color: var(--color-grey--2);
+	  filter: brightness(0.98);
   
 	  display: flex;
 	  align-items: center;
@@ -114,15 +132,62 @@
 	  svg {
 		height: 2.25rem;
 		width: 2.25rem;
-		fill: $color-primary;
+		fill: var(--color-primary);
 	  }
 	}
   
+	////////////
+	//NUTRITIONAL_DATA
+  
+	&__nutritional-data {
+	  background-color: var(--color-grey--1);
+	  padding: 2rem 8rem 6rem 8rem;
+  
+	  h3 {
+		margin: 0;
+	  }
+  
+	  @include respond(phone-small) {
+		padding: 2rem 4rem 6rem 4rem;
+	  }
+	}
+	&__nutrients {
+	  margin-top: 3rem;
+	  display: flex;
+	  flex-flow: row wrap;
+	  justify-content: space-between;
+  
+	  @include respond(tab-land) {
+		justify-content: center;
+	  }
+	}
+	&__nutrient-field {
+	  background-color: var(--color-grey--2);
+	  font-size: 1.4rem;
+	  text-transform: uppercase;
+	  // margin: 1.5rem;
+	  padding: 3rem 2rem;
+	  text-align: center;
+	  min-width: 13rem;
+	  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+	  border-radius: 1rem;
+  
+	  @include respond(tab-land) {
+		margin: 2rem;
+	  }
+	}
+	&__nutrient-value {
+	  color: var(--color-primary);
+	  font-weight: 600;
+	}
+  
+	///////////
+	// INGREDIENTS
 	&__ingredients {
 	  padding: 5rem 8rem;
 	  font-size: 1.6rem;
 	  line-height: 1.4;
-	  background-color: $color-grey-light-2;
+	  background-color: var(--color-grey--2);
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
@@ -133,8 +198,10 @@
 	  grid-template-columns: 1fr 1fr;
 	  gap: 2.5rem 3rem;
 	  list-style: none;
-	  @media only screen and (max-width: $bp-small) {
+  
+	  @include respond(tab-port) {
 		grid-template-columns: 1fr;
+		gap: 2.5rem 0;
 	  }
 	}
   
@@ -145,18 +212,44 @@
 	&__icon {
 	  height: 2rem;
 	  width: 2rem;
-	  fill: $color-primary;
+	  fill: var(--color-primary);
 	  margin-right: 1.1rem;
 	  flex: 0 0 auto;
 	  margin-top: 0.1rem;
+	  transform: translateY(3px) scale(1);
+	  transition: all 0.2s;
+	}
+  
+	&__icon:hover {
+	  transform: translateY(3px) scale(1.2);
 	}
   
 	&__quantity {
 	  margin-right: 0.5rem;
 	  flex: 0 0 auto;
 	}
+	&__note {
+	  font-size: 1.4rem;
+	  align-self: flex-end;
+	  margin-top: 3rem;
+	  margin-bottom: -3rem;
+	  span {
+		color: var(--color-primary);
+	  }
+	  a:link,
+	  a:visited {
+		text-decoration: none;
+		color: var(--color-primary);
+	  }
+	  a:hover {
+		text-decoration: underline;
+	  }
+	}
   
+	///////////
+	// DIRECTIONS
 	&__directions {
+	  background-color: var(--color-grey--1);
 	  padding: 5rem 10rem;
 	  padding-bottom: 5rem;
 	  display: flex;
@@ -168,11 +261,86 @@
 	  font-size: 1.7rem;
 	  text-align: center;
 	  margin-bottom: 3.5rem;
-	  color: $color-grey-dark-2;
+	  color: var(--color-text--2);
 	}
   
 	&__publisher {
 	  font-weight: 700;
+	}
+  
+	//////////////
+	// PLANNING
+	&__planning {
+	  padding: 5rem 8rem;
+	  padding-bottom: 10rem;
+	  font-size: 1.8rem;
+	  line-height: 1.4;
+	  background-color: var(--color-grey--2);
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	&__planning-form {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr 1fr;
+	  grid-template-rows: auto;
+	  gap: 0.5rem 5rem;
+	  place-items: start;
+  
+	  @include respond(tab-port) {
+		grid-template-columns: 1fr;
+	  }
+	}
+  
+	&__label {
+	  grid-row: 1;
+	  font-weight: 600;
+  
+	  @include respond(tab-port) {
+		grid-row: initial;
+	  }
+	}
+	&__select {
+	  font-size: 1.5rem;
+	  grid-row: 2;
+	  padding: 0.8rem 0.5rem;
+	  max-width: 20rem;
+	  border: 1px solid var(--color-input-borders);
+	  border-radius: 0.5rem;
+	  transition: all 0.2s;
+	  place-self: stretch;
+	  text-transform: capitalize;
+	  background-color: var(--color-grey--1);
+	  color: var(--color-text--1);
+  
+	  @include respond(tab-port) {
+		grid-row: initial;
+	  }
+  
+	  &:focus {
+		outline: none;
+		border: 1px solid var(--color-primary);
+		background-color: var(--color-grey--1);
+	  }
+	}
+	&__option {
+	  font-family: inherit;
+	  font-size: 1.6rem;
+	  text-transform: capitalize;
+	}
+	&__submit {
+	  font-weight: 600;
+	  grid-row: 3;
+	  grid-column: 1 / span 3;
+	  margin-top: 3rem;
+	  place-self: center;
+	  max-width: 15rem;
+  
+	  @include respond(tab-port) {
+		grid-row: initial;
+		grid-column: 1;
+	  }
 	}
   }
   
