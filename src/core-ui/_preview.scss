@@ -6,26 +6,17 @@
 		align-items: center;
 		padding: 1.5rem 3.25rem;
 		transition: all 0.3s;
-		border-right: 1px solid $color-white;
+		border-right: 1px solid var(--color-background);
 		text-decoration: none;
-		@media only screen and (max-width: $bp-medium) {
-		  flex-direction: column;
-		  padding: 1rem;
-		  height: 100%;
-		  width: 15rem;
-		}
-		@media only screen and (max-width: $bp-small) {
-		  width: 13rem;
-		}
 	  }
   
 	  &:hover {
-		background-color: $color-grey-light-1;
+		background-color: var(--color-grey--1);
 		transform: translateY(-2px);
 	  }
   
 	  &--active {
-		background-color: $color-grey-light-1;
+		background-color: var(--color-grey--1);
 	  }
 	}
   
@@ -33,16 +24,13 @@
 	  flex: 0 0 5.8rem;
 	  border-radius: 50%;
 	  overflow: hidden;
-	  height: 5rem;
+	  height: 5.8rem;
 	  margin-right: 2rem;
 	  position: relative;
 	  backface-visibility: hidden;
-	  @media only screen and (max-width: $bp-medium) {
-		width: 8rem;
-	  }
   
 	  &::before {
-		content: "";
+		content: '';
 		display: block;
 		height: 100%;
 		width: 100%;
@@ -51,8 +39,8 @@
 		left: 0;
 		background-image: linear-gradient(
 		  to right bottom,
-		  $color-grad-1,
-		  $color-grad-2
+		  var(--color-grad-1),
+		  var(--color-grad-2)
 		);
 		opacity: 0.4;
 	  }
@@ -63,6 +51,14 @@
 		height: 100%;
 		object-fit: cover;
 		transition: all 0.3s;
+	  }
+  
+	  @include respond(tab-port) {
+		display: none;
+	  }
+  
+	  @include respond(phone) {
+		display: block;
 	  }
 	}
   
@@ -77,9 +73,11 @@
 	&__title {
 	  grid-column: 1/-1;
 	  font-size: 1.45rem;
-	  color: $color-primary;
+	  color: var(--color-primary);
 	  text-transform: uppercase;
 	  font-weight: 600;
+  
+	  // This is how text is truncated!
 	  text-overflow: ellipsis;
 	  max-width: 25rem;
 	  white-space: nowrap;
@@ -88,13 +86,13 @@
   
 	&__publisher {
 	  font-size: 1.15rem;
-	  color: $color-grey-dark-2;
+	  color: var(--color-text--2);
 	  text-transform: uppercase;
 	  font-weight: 600;
 	}
   
 	&__user-generated {
-	  background-color: darken($color-grey-light-2, 2%);
+	  background-color: var(--color-grey--2);
   
 	  display: flex;
 	  align-items: center;
@@ -109,7 +107,7 @@
 	  svg {
 		height: 1.2rem;
 		width: 1.2rem;
-		fill: $color-primary;
+		fill: var(--color-primary);
 	  }
 	}
   }
