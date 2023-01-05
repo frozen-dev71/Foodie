@@ -1,6 +1,6 @@
-import icons from 'url:../../img/icons.svg';
+import icons from 'url:../../assets/img/icons.svg';
 import View from './View';
-import { maxFourWords } from '../helpers.js';
+import { maxFourWords } from '../helper.js';
 
 class PlannerView extends View {
   _parentElement = document.querySelector('.planner__grid');

@@ -1,4 +1,4 @@
-import icons from 'url:../../img/icons.svg';
+import icons from 'url:../../assets/img/icons.svg';
 import { clearIngredients } from '../model';
 import View from './View';
 

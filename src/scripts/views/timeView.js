@@ -1,5 +1,5 @@
 import View from './View';
-import { formatDate } from '../helpers.js';
+import { formatDate } from '../helper.js';
 
 class TimeView extends View {
   _parentElement = document.querySelector('.planner__date');
