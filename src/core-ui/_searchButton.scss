@@ -1,0 +1,27 @@
+.search__btn {
+    font-weight: 700;
+    font-family: inherit;
+    padding: 1.5rem 3rem; }
+    @media only screen and (max-width: 75em) {
+      .search__btn {
+        padding: 1.5rem 2.5rem; }
+        .search__btn span {
+          display: none; }
+        .search__btn svg {
+          margin-right: 0 !important; } }
+    @media only screen and (max-width: 41.25em) {
+      .search__btn {
+        padding: 1.5rem 3rem; }
+        .search__btn span {
+          display: initial; }
+        .search__btn svg {
+          margin-right: 1rem !important; } }
+    @media only screen and (max-width: 28.12em) {
+      .search__btn {
+        padding: 1.5rem 2.5rem; }
+        .search__btn span {
+          display: none; }
+        .search__btn svg {
+          margin-right: 0 !important; } }
+  .search__icon--header {
+    margin-right: 0; }
