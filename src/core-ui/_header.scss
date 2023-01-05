@@ -204,9 +204,10 @@
 	position: absolute;
 	// right: 0;
 	right: -2.5rem;
+	border-radius: 9px;
 	z-index: 10;
 	width: 40rem;
-	background-color: var(--color-grey--1);
+	background-color: #fff;
 	box-shadow: 1rem 1rem 4rem rgba(#ddd, 0.1);
   
 	visibility: hidden;

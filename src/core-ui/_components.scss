@@ -1,5 +1,6 @@
 %btn {
 	background-image: var(--gradient);
+	// background-color: var(--color-primary-variant);
 	border-radius: 10rem;
 	border: none;
 	text-transform: uppercase;
@@ -24,8 +25,10 @@
   
   .btn {
 	@extend %btn;
+  
+	padding: 1.5rem 4rem;
 	font-size: 1.5rem;
-	font-weight: 600;
+	font-weight: 700;
   
 	svg {
 	  height: 2.25rem;
@@ -87,7 +90,7 @@
 	  outline: none;
 	}
   }
-
+  
   .btn--week {
 	font-size: 1.3rem;
 	font-weight: 600;
@@ -109,6 +112,11 @@
 	}
   
 	span {
+	  // margin: 0 0.4rem;
+	  // background: $gradient;
+	  // background-clip: text;
+	  // -webkit-background-clip: text;
+	  // color: transparent;
 	  text-transform: uppercase;
 	}
   
@@ -124,14 +132,15 @@
   
   .btn--round {
 	background-image: var(--gradient);
+	// background-color: var(--color-primary-variant);
 	border-radius: 50%;
 	border: none;
 	cursor: pointer;
 	height: 4.5rem;
 	width: 4.5rem;
+	// margin-left: auto;
 	transition: all 0.2s;
-	display: flex;
-	
+  
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -183,7 +192,7 @@
 	  margin-right: 0.3rem;
 	}
   }
-
+  
   .btn--white {
 	align-self: center;
 	width: fit-content;
@@ -195,7 +204,7 @@
 	  margin-bottom: 2rem;
 	}
   }
-
+  
   .btn--list {
 	color: var(--color-primary);
 	font-size: 2rem;
@@ -239,7 +248,7 @@
 	  outline: none;
 	}
   }
-
+  
   .heading {
 	&--2 {
 	  font-size: 2rem;
@@ -259,8 +268,6 @@
 	  text-align: center;
 	}
   }
-
-  
   
   .link:link,
   .link:visited {
@@ -311,7 +318,7 @@
 	  font-weight: 600;
 	  color: var(--color-text--1);
 	}
-
+  
 	a:link,
 	a:visited {
 	  text-decoration: none;
