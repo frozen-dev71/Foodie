@@ -4,13 +4,74 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="../src/img/favicon.png" type="image/x-icon" />
+	<link rel="shortcut icon" href="../src/assets/img/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="../src/sass/main.scss" />
     <title>Foodie // Weekly meal planner</title>
   </head>
   <body>
     <div class="container-pages container-pages__planner">
+		<header class="header">
+			<figure class="header__logo">
+				<a href="https://foodie-book.vercel.app/">
+					<img src="src/assets/img/applogo.png" alt="Logo" class="header__logo-img header__logo-img--home" />
+				</a>
+			  </figure>
+			  <div class="page-options page-options-end">
+				<ul class="page-options__list">
+				  <li class="page-options__item">
+					<button
+					  class="page-options__btn page-options__btn--reset-calendar"
+					>
+					  <svg class="page-options__icon">
+						<use href="../src/assets/img/icons.svg#icon-reset"></use>
+					  </svg>
+					  <span>Reset the calendar</span>
+					</button>
+				  </li>
+				</ul>
+			  </div>
+			  <div class="slider">
+				<svg class="slider__icon--day">
+				  <use href="../src/assets/img/icons.svg#icon-sun"></use>
+				</svg>
+				<div class="slider__circle"></div>
+				<svg class="slider__icon--night">
+				  <use href="../src/assets/img/icons.svg#icon-moon"></use>
+				</svg>
+			  </div>
+			  <div class="navigation">
+				<input
+				  type="checkbox"
+				  id="checkbox-button"
+				  class="navigation__checkbox"
+				/>
+				<label for="checkbox-button" class="navigation__button">
+				  <span class="navigation__icon"></span>
+				</label>
+				<div class="navigation__background"></div>
+				<nav class="navigation__nav">
+				  <ul class="navigation__list">
+					<li class="navigation__item">
+					  <a href="../index.html" class="navigation__link"
+						>Search for recipes</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="shoppingList.html" class="navigation__link"
+						>Shopping list</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="mealPlanner.html" class="navigation__link"
+						>Weekly meal planner</a
+					  >
+					</li>
+				  </ul>
+				</nav>
+			  </div>
+
+		</header>
     </div>
   </body>
 </html>
