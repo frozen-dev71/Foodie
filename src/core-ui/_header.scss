@@ -1,6 +1,6 @@
 .header {
 	grid-area: head;
-	background-color: $color-grey-light-1;
+	background-color: var(--color-grey--1);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -37,7 +37,7 @@
   
 	&:focus-within {
 	  transform: translateY(-2px);
-	  box-shadow: 0 0.7rem 3rem rgba($color-grey-dark-1, 0.08);
+	  box-shadow: 0 0.7rem 1rem rgba(var(--color-text--1), 0.08);
 	}
   
 	&__field {

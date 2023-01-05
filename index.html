@@ -14,56 +14,100 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-home">
 		<header class="header">
+			<figure class="header__logo"></figure>
 			<a href="https://foodie-book.vercel.app/">
 				<img src="src/assets/img/applogo.png" alt="Logo" class="header__logo" />
 			</a>
-			<form class="search">
-				<input type="text" class="search__field" placeholder="Search over 1,000,000 recipes..." />
-				<button class="btn search__btn">
-					<svg class="search__icon">
-						<use href="src/assets/img/icons.svg#icon-search"></use>
-					</svg>
-					<span>Search</span>
-				</button>
-			</form>
-			<!-- Navigation -->
-			<nav class="nav">
-				<ul class="nav__list">
-					<li class="nav__item">
-						<button class="nav__btn nav__btn--add-recipe">
-							<svg class="nav__icon">
-								<use href="src/assets/img/icons.svg#icon-edit"></use>
+			</figure>
+		    <div class="page-options">
+				<ul class="page-options__list">
+				  <li class="page-options__item">
+					<button class="page-options__btn page-options__btn--add-recipe">
+					  <svg class="page-options__icon">
+						<use href="src/assets/img/icons.svg#icon-edit"></use>
+					  </svg>
+					  <span>Add recipe</span>
+					</button>
+				  </li>
+				  <li class="page-options__item">
+					<button class="page-options__btn page-options__btn--bookmarks">
+					  <svg class="page-options__icon">
+						<use href="src/assets/img/icons.svg#icon-bookmark"></use>
+					  </svg>
+					  <span>Bookmarks</span>
+					</button>
+					<div class="bookmarks">
+					  <ul class="bookmarks__list">
+						<div class="message">
+						  <div>
+							<svg>
+							  <use href="src/assets/img/icons.svg#icon-smile"></use>
 							</svg>
-							<span>Add recipe</span>
-						</button>
-					</li>
-					<li class="nav__item">
-						<button class="nav__btn nav__btn--bookmarks">
-							<svg class="nav__icon">
-								<use href="src/assets/img/icons.svg#icon-bookmark"></use>
-							</svg>
-							<span>Bookmarks</span>
-						</button>
-						<div class="bookmarks">
-							<ul class="bookmarks__list">
-								<div class="message">
-									<div>
-										<svg>
-											<use href="src/assets/img/icons.svg#icon-smile"></use>
-										</svg>
-									</div>
-									<p>
-										No bookmarks yet. Find a nice recipe and bookmark it.
-									</p>
-								</div>
-							</ul>
+						  </div>
+						  <p>
+							No bookmarks yet. Find a nice recipe and bookmark it.
+						  </p>
 						</div>
-					</li>
+					  </ul>
+					</div>
+				  </li>
 				</ul>
-			</nav>
-		</header>
+			  </div>
+			  <form class="search">
+				<input
+				  type="text"
+				  class="search__field"
+				  placeholder="Search over 1,000,000 recipes..."
+				/>
+				<button class="btn search__btn">
+				  <svg class="search__icon search__icon--header">
+					<use href="src/assets/img/icons.svg#icon-search"></use>
+				  </svg>
+				  <span>Search</span>
+				</button>
+			  </form>
+			  <div class="slider">
+				<svg class="slider__icon--day">
+				  <use href="src/assets/img/icons.svg#icon-sun"></use>
+				</svg>
+				<div class="slider__circle"></div>
+				<svg class="slider__icon--night">
+				  <use href="src/assets/img/icons.svg#icon-moon"></use>
+				</svg>
+			  </div>
+			  <div class="navigation">
+				<input
+				  type="checkbox"
+				  id="checkbox-button"
+				  class="navigation__checkbox"
+				/>
+				<label for="checkbox-button" class="navigation__button">
+				  <span class="navigation__icon"></span>
+				</label>
+				<div class="navigation__background"></div>
+				<nav class="navigation__nav">
+				  <ul class="navigation__list">
+					<li class="navigation__item">
+					  <a href="index.html" class="navigation__link"
+						>Search for recipes</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="pages/shoppingList.html" class="navigation__link"
+						>Shopping lists</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="pages/mealPlanner.html" class="navigation__link"
+						>Weekly meal planner</a
+					  >
+					</li>
+				  </ul>
+				</nav>
+			  </div>
+			</header>
 		<section class="content-container">
 			<!-- Search Results -->
 			<div class="search-results">
