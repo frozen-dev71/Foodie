@@ -1,146 +1,427 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet" />
-	<link rel="shortcut icon" href="src/assets/img/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="src/assets/img/appicon.png" type="image/x-icon" />
 	<link rel="stylesheet" href="src/core-ui/main.scss" />
-	<script type="module" defer src="src/scripts/controller.js"></script>
+
+    <script defer src="src/scripts/controller.js" type="module"></script>
 
 	<title>Foodie Recipies</title>
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-home">
 		<header class="header">
+			<figure class="header__logo">
 			<a href="https://foodie-book.vercel.app/">
-				<img src="src/assets/img/applogo.png" alt="Logo" class="header__logo" />
+				<img src="src/assets/img/applogo.png" alt="Logo" class="header__logo-img header__logo-img--home" />
 			</a>
-			<form class="search">
-				<input type="text" class="search__field" placeholder="Search over 1,000,000 recipes..." />
-				<button class="btn search__btn">
-					<svg class="search__icon">
-						<use href="src/assets/img/icons.svg#icon-search"></use>
-					</svg>
-					<span>Search</span>
-				</button>
-			</form>
-			<!-- Navigation -->
-			<nav class="nav">
-				<ul class="nav__list">
-					<li class="nav__item">
-						<button class="nav__btn nav__btn--add-recipe">
-							<svg class="nav__icon">
-								<use href="src/assets/img/icons.svg#icon-edit"></use>
+			</figure>
+		    <div class="page-options">
+				<ul class="page-options__list">
+				  <li class="page-options__item">
+					<button class="page-options__btn page-options__btn--add-recipe">
+					  <svg class="page-options__icon">
+						<use href="src/assets/img/icons.svg#icon-edit"></use>
+					  </svg>
+					  <span>Add recipe</span>
+					</button>
+				  </li>
+				  <li class="page-options__item">
+					<button class="page-options__btn page-options__btn--bookmarks">
+					  <svg class="page-options__icon">
+						<use href="src/assets/img/icons.svg#icon-bookmark"></use>
+					  </svg>
+					  <span>Bookmarks</span>
+					</button>
+					<div class="bookmarks">
+					  <ul class="bookmarks__list">
+						<div class="message">
+						  <div>
+							<svg>
+							  <use href="src/assets/img/icons.svg#icon-smile"></use>
 							</svg>
-							<span>Add recipe</span>
-						</button>
-					</li>
-					<li class="nav__item">
-						<button class="nav__btn nav__btn--bookmarks">
-							<svg class="nav__icon">
-								<use href="src/assets/img/icons.svg#icon-bookmark"></use>
-							</svg>
-							<span>Bookmarks</span>
-						</button>
-						<div class="bookmarks">
-							<ul class="bookmarks__list">
-								<div class="message">
-									<div>
-										<svg>
-											<use href="src/assets/img/icons.svg#icon-smile"></use>
-										</svg>
-									</div>
-									<p>
-										No bookmarks yet. Find a nice recipe and bookmark it.
-									</p>
-								</div>
-							</ul>
+						  </div>
+						  <p>
+							No bookmarks yet. Find a nice recipe and bookmark it.
+						  </p>
 						</div>
-					</li>
+					  </ul>
+					</div>
+				  </li>
 				</ul>
-			</nav>
-		</header>
-		<section class="content-container">
-			<!-- Search Results -->
+			  </div>
+			  <form class="search">
+				<input
+				  type="text"
+				  class="search__field"
+				  placeholder="Search over 1,000,000 recipes..."
+				/>
+				<button class="btn search__btn">
+				  <svg class="search__icon search__icon--header">
+					<use href="src/assets/img/icons.svg#icon-search"></use>
+				  </svg>
+				  <span>Search</span>
+				</button>
+			  </form>
+			  <div class="slider">
+				<svg class="slider__icon--day">
+				  <use href="src/assets/img/icons.svg#icon-sun"></use>
+				</svg>
+				<div class="slider__circle"></div>
+				<svg class="slider__icon--night">
+				  <use href="src/assets/img/icons.svg#icon-moon"></use>
+				</svg>
+			  </div>
+			  <div class="navigation">
+				<input
+				  type="checkbox"
+				  id="checkbox-button"
+				  class="navigation__checkbox"
+				/>
+				<label for="checkbox-button" class="navigation__button">
+				  <span class="navigation__icon"></span>
+				</label>
+				<div class="navigation__background"></div>
+				<nav class="navigation__nav">
+				  <ul class="navigation__list">
+					<li class="navigation__item">
+					  <a href="index.html" class="navigation__link"
+						>Search for recipes</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="pages/shoppingList.html" class="navigation__link"
+						>Shopping lists</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="pages/mealPlanner.html" class="navigation__link"
+						>Weekly meal planner</a
+					  >
+					</li>
+				  </ul>
+				</nav>
+			  </div>
+			</header>
 			<div class="search-results">
 				<ul class="results">
+				  <div class="message">
+					<div>
+					  <svg>
+						<use href="src/assets/img/icons.svg#icon-smile"></use>
+					  </svg>
+					</div>
+					<p>
+					  Start by searching for a recipe or add some items to
+					  <a href="./pages/shoppingList.html">your shopping list</a>. Have
+					  fun!
+					</p>
+				  </div>
 				</ul>
-
+		
 				<div class="pagination">
 				</div>
-
+		
 				<p class="copyright">
-					&copy; Copyright by
-					<a class="credit-link" target="_blank" href="https://twitter.com/jonasschmedtman">Jonas
-						Schmedtmann</a> & <a class="credit-link" target="_blank"
-						href="https://github.com/berkbeleli">Berk Beleli</a>.
-					Use
-					for learning or your portfolio. Don't use to teach. Don't claim
-					as your own.
+				  &copy; Version modified and improved by
+				  <a
+					class="twitter-link"
+					target="_blank"
+					href="https://berkbeleli.vercel.app"
+					rel="noopener"
+					>Berk Beleli</a
+				  >
+				  Check the original app to see the difference:
+				  <a
+					class="twitter-link"
+					target="_blank"
+					rel="noopener"
+					href="https://forkify-v2.netlify.app/"
+					>forkify@1.0.0</a
+				  >
 				</p>
-			</div>
-			<!-- End of Search Results -->
-			<!-- Recipe -->
-			<div class="recipe">
-				<div class="message">
-					<div>
+			  </div>
+			  
+			  <div class="recipe">
+				<section class="section section__features">
+				  <h2 class="heading--2 u-margin-top">
+					What can you do in Foodie?
+				  </h2>
+				  <div class="features">
+					<div class="features__feature-box">
+					  <div class="features__icon">
 						<svg>
-							<use href="src/assets/img/icons.svg#icon-smile"></use>
+						  <use href="src/assets/img/icons.svg#icon-search"></use>
 						</svg>
+					  </div>
+					  <h3 class="heading--3">Search over 1,000,000 recipes</h3>
+					  <p class="features__description">
+						Bookmark them, add recipes to your weekly meal planner and
+						select what ingredients you need to buy. They will be waiting
+						for you in your shopping list!
+					  </p>
 					</div>
-					<p>Hungry? Start by searching for a recipe or an ingredient.</p>
+					<div class="features__feature-box">
+					  <div class="features__icon">
+						<svg>
+						  <use href="src/assets/img/icons.svg#icon-edit"></use>
+						</svg>
+					  </div>
+					  <h3 class="heading--3">Add your favorite recipes</h3>
+					  <p class="features__description">
+						Give us an URL of your favorite recipe on the Internet, an URL
+						of its image and some more details. We will keep your dearest
+						recipes safe and handy!
+					  </p>
+					</div>
+					<div class="features__feature-box">
+					  <div class="features__icon">
+						<svg>
+						  <use href="src/assets/img/icons.svg#icon-list"></use>
+						</svg>
+					  </div>
+					  <h3 class="heading--3">Personalise your shopping list</h3>
+					  <p class="features__description">
+						Personal or recipe-selected ingredients can be gathered in your
+						easy-editable shopping list. You choose its title, the items and
+						their order. Download it or check the ingredients in the app.
+					  </p>
+					</div>
+					<div class="features__feature-box">
+					  <div class="features__icon">
+						<svg>
+						  <use href="src/assets/img/icons.svg#icon-calendar"></use>
+						</svg>
+					  </div>
+					  <h3 class="heading--3">
+						Find all your future meals in one planner
+					  </h3>
+					  <p class="features__description">
+						Take time every monday to think about your nutritional goals for
+						the next week. Plan you meals carefully and never ask yourself
+						again "What should I eat today?"
+					  </p>
+					</div>
+				  </div>
+				</section>
+				<div class="message">
+				  <div>
+					<svg>
+					  <use href="src/assets/img/icons.svg#icon-smile"></use>
+					</svg>
+				  </div>
+				  <p>
+					Start by searching for a recipe or add some items to
+					<a href="./pages/shoppingList.html">your shopping list</a>. Have
+					fun!
+				  </p>
 				</div>
-			</div>
-			<!-- End of Recipe -->
-		</section>
 	</div>
 	<!-- Upload Recipe -->
 	<div class="overlay hidden"></div>
 	<div class="add-recipe-window hidden">
-		<button class="btn--close-modal">&times;</button>
-		<form class="upload">
-			<div class="upload__column">
-				<h3 class="upload__heading">Recipe data</h3>
-				<label>Title</label>
-				<input value="" required name="title" type="text" />
-				<label>URL</label>
-				<input value="" required name="sourceUrl" type="text" />
-				<label>Image URL</label>
-				<input value="" required name="image" type="text" />
-				<label>Publisher</label>
-				<input value="" required name="publisher" type="text" />
-				<label>Prep time</label>
-				<input value="" required name="cookingTime" type="number" />
-				<label>Servings</label>
-				<input value="" required name="servings" type="number" />
-			</div>
+	  <button class="btn--close-modal">&times;</button>
+	  <form class="upload">
+		<div class="upload__recipe-data">
+		  <h3 class="upload__heading">Recipe data (4 servings)</h3>
+		  <div class="upload__input-group upload__input-group--title">
+			<label>Title</label>
+			<input value="" required name="title" type="text" />
+		  </div>
+		  <div class="upload__input-group upload__input-group--publisher">
+			<label>Publisher</label>
+			<input value="" required name="publisher" type="text" />
+		  </div>
+		  <div class="upload__input-group upload__input-group--time">
+			<label>Prep time</label>
+			<input value="" required name="cookingTime" type="number" />
+		  </div>
+		  <div class="upload__input-group upload__input-group--url">
+			<label>URL</label>
+			<input value="" required name="sourceUrl" type="text" />
+		  </div>
+		  <div class="upload__input-group upload__input-group--image-url">
+			<label>Image URL</label>
+			<input value="" required name="image" type="text" />
+		  </div>
+		</div>
+		<div class="upload__ingredients">
+		  <h3 class="upload__heading">Ingredients</h3>
+		  <div
+			class="upload__ingredients-column upload__ingredients-column--1"
+		  >
+			<label>Ingredient 1</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-1-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-1-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  required
+			  name="ingredient-1-description"
+			  placeholder="Ingredient"
+			/>
 
-			<div class="upload__column">
-				<h3 class="upload__heading">Ingredients</h3>
-				<label>Ingredient 1</label>
-				<input value="" type="text" required name="ingredient-1"
-					placeholder="Format: 'Quantity,Unit,Description'" />
-				<label>Ingredient 2</label>
-				<input value="" type="text" name="ingredient-2" placeholder="Format: 'Quantity,Unit,Description'" />
-				<label>Ingredient 3</label>
-				<input value="" type="text" name="ingredient-3" placeholder="Format: 'Quantity,Unit,Description'" />
-				<label>Ingredient 4</label>
-				<input type="text" name="ingredient-4" placeholder="Format: 'Quantity,Unit,Description'" />
-			</div>
+			<label>Ingredient 2</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-2-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-2-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-2-description"
+			  placeholder="Ingredient"
+			/>
 
-			<button class="btn upload__btn">
-				<svg>
-					<use href="src/assets/img/icons.svg#icon-upload-cloud"></use>
-				</svg>
-				<span>Upload</span>
-			</button>
-		</form>
+			<label>Ingredient 3</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-3-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-3-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-3-description"
+			  placeholder="Ingredient"
+			/>
+
+			<label>Ingredient 4</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-4-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-4-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-4-description"
+			  placeholder="Ingredient"
+			/>
+		  </div>
+		  <div
+			class="upload__ingredients-column upload__ingredients-column--2"
+		  >
+			<label>Ingredient 5</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-5-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-5-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-5-description"
+			  placeholder="Ingredient"
+			/>
+
+			<label>Ingredient 6</label>
+			<input
+			  value=""
+			  type="number "
+			  name="ingredient-6-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-6-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-6-description"
+			  placeholder="Ingredient"
+			/>
+
+			<label>Ingredient 7</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-7-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-7-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-7-description"
+			  placeholder="Ingredient"
+			/>
+
+			<label>Ingredient 8</label>
+			<input
+			  value=""
+			  type="number"
+			  name="ingredient-8-quantity"
+			  placeholder="Quantity"
+			/>
+			<input
+			  value=""
+			  type="text"
+			  name="ingredient-8-unit"
+			  placeholder="Unit"
+			/><input
+			  value=""
+			  type="text"
+			  name="ingredient-8-description"
+			  placeholder="Ingredient"
+			/>
+		  </div>
+		</div>
+		<button class="btn upload__btn">
+		  <svg>
+			<use href="src/assets/img/icons.svg#icon-upload-cloud"></use>
+		  </svg>
+		  <span>Upload</span>
+		</button>
+	  </form>
 	</div>
-
+</div>
 </body>
 
 </html>

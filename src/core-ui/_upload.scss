@@ -4,15 +4,26 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 100rem;
-	background-color: $color-white;
+	background-color: var(--color-grey--2);
 	border-radius: 9px;
-	@media only screen and (max-width: $bp-medium) {
-	  width: max-content;
-	}
+  
 	padding: 5rem 6rem;
 	box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
-	z-index: 1000;
 	transition: all 0.5s;
+	z-index: 3500;
+  
+	@include respond(tab-land) {
+	  transform: translate(-50%, -50%) scale(0.9);
+	}
+  
+	@include respond(tab-port) {
+	  width: 60rem;
+	}
+  
+	@include respond(phone) {
+	  transform: translate(-50%, -50%) scale(0.8);
+	  width: 50rem;
+	}
   
 	.btn--close-modal {
 	  font-family: inherit;
@@ -35,7 +46,7 @@
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4px);
-	z-index: 100;
+	z-index: 3000;
 	transition: all 0.5s;
   }
   
@@ -45,48 +56,125 @@
   }
   
   .upload {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 4rem 6rem;
-	@media only screen and (max-width: $bp-medium) {
-	  grid-template-columns: 1fr;
-	  gap: 2rem;
-	}
+	display: flex;
+	flex-direction: column;
   
-	&__column {
+	&__recipe-data {
 	  display: grid;
-	  grid-template-columns: 1fr 2.8fr;
-	  align-items: center;
-	  gap: 1.5rem;
+	  grid-template-columns: 2fr 1fr 1fr;
+	  gap: 1rem 3rem;
+	  margin-bottom: 4rem;
   
+	  @include respond(tab-port) {
+		display: flex;
+		flex-direction: column;
+	  }
+	}
+	&__input-group {
 	  & label {
 		font-size: 1.5rem;
 		font-weight: 600;
 		color: inherit;
+		float: left;
+		width: 20%;
 	  }
   
 	  & input {
 		font-size: 1.5rem;
 		padding: 0.8rem 1rem;
-		border: 1px solid #ddd;
+		border: 1px solid var(--color-input-borders);
 		border-radius: 0.5rem;
 		transition: all 0.2s;
+		float: right;
+		width: 80%;
+		background-color: var(--color-grey--1);
+		color: var(--color-text--1);
   
 		&::placeholder {
-		  color: $color-grey-light-3;
+		  color: var(--color-text--3);
 		}
   
 		&:focus {
 		  outline: none;
-		  border: 1px solid $color-primary;
-		  background-color: $color-grey-light-1;
+		  border: 1px solid var(--color-primary);
+		  background-color: var(--color-grey--1);
 		}
 	  }
   
-	  & button {
-		grid-column: 1 / span 2;
-		justify-self: center;
-		margin-top: 1rem;
+	  &--publisher,
+	  &--time {
+		& label {
+		  float: left;
+		  width: 43%;
+  
+		  @include respond(tab-port) {
+			width: 20%;
+		  }
+		}
+		& input {
+		  float: right;
+		  width: 57%;
+		  color: var(--color-text--1);
+  
+		  @include respond(tab-port) {
+			width: 80%;
+		  }
+		}
+	  }
+  
+	  &--image-url {
+		grid-column: 2 / span 2;
+	  }
+	}
+  
+	&__ingredients {
+	  display: grid;
+	  grid-template-columns: 2fr 1fr 1fr;
+	  gap: 1rem 3rem;
+  
+	  @include respond(tab-port) {
+		display: flex;
+		flex-direction: column;
+	  }
+	}
+  
+	&__ingredients-column {
+	  &--1 {
+		grid-column: 1 / span 1;
+	  }
+	  &--2 {
+		grid-column: 2 / span 2;
+	  }
+	  display: grid;
+	  grid-template-columns: 1fr 1fr 1fr 1fr;
+	  gap: 1rem 1rem;
+  
+	  & label {
+		font-size: 1.4rem;
+		font-weight: 600;
+		color: inherit;
+		align-self: center;
+	  }
+  
+	  & input {
+		font-size: 1.4rem;
+		max-width: 10rem;
+		padding: 0.8rem 1rem;
+		border: 1px solid var(--color-input-borders);
+		border-radius: 0.5rem;
+		transition: all 0.2s;
+		background-color: var(--color-grey--1);
+		color: var(--color-text--1);
+  
+		&::placeholder {
+		  color: var(--color-text--3);
+		}
+  
+		&:focus {
+		  outline: none;
+		  border: 1px solid var(--color-primary);
+		  background-color: var(--color-grey--1);
+		}
 	  }
 	}
   
@@ -95,12 +183,12 @@
 	  font-weight: 700;
 	  text-transform: uppercase;
 	  margin-bottom: 1rem;
-	  grid-column: 1/-1;
+	  grid-column: 1 / -1;
 	}
   
 	&__btn {
-	  grid-column: 1 / -1;
-	  justify-self: center;
+	  margin-top: 4rem;
+	  align-self: center;
 	}
+
   }
-  

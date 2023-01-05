@@ -1,0 +1,126 @@
+/////////////////////////--VARIABLES--///////////////////////
+
+:root {
+	//App colors
+	--color-primary: #9F221F;
+	--color-grad-1: #9F221F;
+	--color-grad-2: #cf4846;
+	--color-primary-variant: #f12711; // to be consistent with the variant needed for dark mode
+  
+	//Background colors
+	--color-wrapper: #9F221F;
+	--color-background: #fff;
+	--color-grey--1: #f9f5f3; // Light background
+	--color-grey--2: #f2efee; // Lines / alternative
+  
+	//Text colors
+	--color-text--1: #615551; // Default text  //ex dark-1
+	--color-text--2: #918581; // secondary text //ex dark-2
+	--color-text--3: #d3c7c3; // tertiary text (placeholder)    //ex light-3
+	--color-on-primary: #fff; // on primary color
+  
+	//Special colors
+	--color-input-borders: #ddd;
+	--color-grey--3: #e7e5e4;
+  
+	//Gradients
+	--gradient: linear-gradient(
+	  to bottom right,
+	  var(--color-grad-1),
+	  var(--color-grad-2)
+	);
+	--wrapper-gradient: linear-gradient(
+	  to bottom right,
+	  var(--color-wrapper),
+	  var(--color-grad-2)
+	);
+  }
+  
+  [data-theme='dark'] {
+	//keep the names and the gradients for consistency
+  
+	//App colors
+	--color-primary: #cf4846;
+	--color-grad-1: #303030;
+	--color-grad-2: #303030;
+	--color-primary-variant: #9F221F;
+  
+	//Background colors
+	--color-wrapper: #121212;
+	--color-background: #303030;
+	--color-grey--1: #424242; // Dark background (surface)
+	--color-grey--2: #383838; // Lines / alternative
+  
+	//Text colors
+	--color-text--1: #ececec; // default text
+	--color-text--2: #bec5c7; // secondary text
+	--color-text--3: #989898; // tertiary text (placeholder)
+	--color-on-primary: #000;
+  
+	//Special colors
+	--color-input-borders: #121212;
+	--color-grey--3: #e7e5e4;
+  
+	//Gradients
+	--gradient: linear-gradient(
+	  to right bottom,
+	  var(--color-primary-variant),
+	  var(--color-primary-variant)
+	);
+	--wrapper-gradient: linear-gradient(
+	  to right bottom,
+	  var(--color-wrapper),
+	  var(--color-wrapper)
+	);
+  }
+  
+  $bp-largest: 112.5em; //1800px
+  $bp-large: 75em; //1200px
+  //78.15em; // 1250px
+  $bp-medium: 56.25em; //900px
+  //61.25em; // 980px
+  $bp-small: 41.25em; // 6600px
+  $bp-smallest: 28.12em; // 450px
+  
+  /////////////////////////--MIXINS--///////////////////////
+  
+  @mixin gradient-background-text {
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+	padding: 1.3rem 2rem;
+	background-image: linear-gradient(
+	  to right bottom,
+	  var(--color-grad-1),
+	  var(--color-grad-2)
+	);
+  }
+  
+  //MEDIA QUERY MANAGER
+  @mixin respond($breakpoint) {
+	@if $breakpoint == phone-small {
+	  @media only screen and (max-width: $bp-smallest) {
+		@content;
+	  }
+	}
+	@if $breakpoint == phone {
+	  @media only screen and (max-width: $bp-small) {
+		@content;
+	  }
+	}
+	@if $breakpoint == tab-port {
+	  @media only screen and (max-width: $bp-medium) {
+		@content;
+	  }
+	}
+	@if $breakpoint == tab-land {
+	  @media only screen and (max-width: $bp-large) {
+		@content;
+	  }
+	}
+	@if $breakpoint == big-desktop {
+	  @media only screen and (min-width: $bp-largest) {
+		@content;
+	  }
+	}
+  }
+  

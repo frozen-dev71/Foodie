@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="../src/assets/img/appicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../src/core-ui/main.scss" />
+	<script defer src="../src/scripts/controllerPlanner.js" type="module"></script>
+    <title>Foodie // Weekly meal planner</title>
+  </head>
+  <body>
+    <div class="container-pages container-pages__planner">
+		<header class="header">
+			<figure class="header__logo">
+				<a href="https://foodie-book.vercel.app/">
+					<img src="../src/assets/img/applogo.png" alt="Logo" class="header__logo-img header__logo-img--home" />
+				</a>
+			  </figure>
+			  <div class="page-options page-options-end">
+				<ul class="page-options__list">
+				  <li class="page-options__item">
+					<button
+					  class="page-options__btn page-options__btn--reset-calendar"
+					>
+					  <svg class="page-options__icon">
+						<use href="../src/assets/img/icons.svg#icon-reset"></use>
+					  </svg>
+					  <span>Reset the calendar</span>
+					</button>
+				  </li>
+				</ul>
+			  </div>
+			  <div class="slider">
+				<svg class="slider__icon--day">
+				  <use href="../src/assets/img/icons.svg#icon-sun"></use>
+				</svg>
+				<div class="slider__circle"></div>
+				<svg class="slider__icon--night">
+				  <use href="../src/assets/img/icons.svg#icon-moon"></use>
+				</svg>
+			  </div>
+			  <div class="navigation">
+				<input
+				  type="checkbox"
+				  id="checkbox-button"
+				  class="navigation__checkbox"
+				/>
+				<label for="checkbox-button" class="navigation__button">
+				  <span class="navigation__icon"></span>
+				</label>
+				<div class="navigation__background"></div>
+				<nav class="navigation__nav">
+				  <ul class="navigation__list">
+					<li class="navigation__item">
+					  <a href="../index.html" class="navigation__link"
+						>Search for recipes</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="shoppingList.html" class="navigation__link"
+						>Shopping list</a
+					  >
+					</li>
+					<li class="navigation__item">
+					  <a href="mealPlanner.html" class="navigation__link"
+						>Weekly meal planner</a
+					  >
+					</li>
+				  </ul>
+				</nav>
+			  </div>
+		</header>
+		<section class="section section__planner u-no-bottom-margin">
+			<h2 class="section__title heading--2">Meal planner</h2>
+			<form class="planner__form">
+			  <label class="planner__select-label" for="weekday"> Weekday </label>
+			  <select class="planner__select" id="weekday" required>
+				<option class="planner__option" value="0">monday</option>
+				<option class="planner__option" value="1">tuesday</option>
+				<option class="planner__option" value="2">wednesday</option>
+				<option class="planner__option" value="3">thursday</option>
+				<option class="planner__option" value="4">friday</option>
+				<option class="planner__option" value="5">saturday</option>
+				<option class="planner__option" value="6">sunday</option>
+			  </select>
+			  <input type="submit" class="planner__submit" />
+			</form>
+			<div class="planner">
+			  <div class="planner__empty">&nbsp;</div>
+			  <div class="planner__day-cell planner__day-cell--active">
+				<div class="planner__day">Monday</div>
+			  </div>
+			  <div class="planner__day-cell">
+				<div class="planner__day">Tuesday</div>
+			  </div>
+			  <div class="planner__day-cell">
+				<div class="planner__day">Wednesday</div>
+			  </div>
+			  <div class="planner__day-cell">
+				<div class="planner__day">Thursday</div>
+			  </div>
+			  <div class="planner__day-cell">
+				<div class="planner__day">Friday</div>
+			  </div>
+			  <div class="planner__day-cell">
+				<div class="planner__day">Saturday</div>
+			  </div>
+			  <div class="planner__day-cell">
+				<div class="planner__day">Sunday</div>
+			  </div>
+			  <div class="planner__meal-cell">
+				<div class="planner__meal">Breakfast</div>
+			  </div>
+			  <div class="planner__meal-cell">
+				<div class="planner__meal">Lunch</div>
+			  </div>
+			  <div class="planner__meal-cell">
+				<div class="planner__meal">Dinner</div>
+			  </div>
+			  <div class="planner__meal-cell">
+				<div class="planner__meal">Desert</div>
+			  </div>
+			  <div class="planner__grid">
+				<div
+				  class="planner__recipe planner__recipe--11 planner__recipe--active"
+				>
+				</div>
+				<div
+				  class="planner__recipe planner__recipe--12 planner__recipe--active"
+				></div>
+				<div
+				  class="planner__recipe planner__recipe--13 planner__recipe--active"
+				></div>
+				<div
+				  class="planner__recipe planner__recipe--14 planner__recipe--active"
+				></div>
+				<div class="planner__recipe planner__recipe--21"></div>
+				<div class="planner__recipe planner__recipe--22"></div>
+				<div class="planner__recipe planner__recipe--23"></div>
+				<div class="planner__recipe planner__recipe--24"></div>
+				<div class="planner__recipe planner__recipe--31"></div>
+				<div class="planner__recipe planner__recipe--32"></div>
+				<div class="planner__recipe planner__recipe--33"></div>
+				<div class="planner__recipe planner__recipe--34"></div>
+				<div class="planner__recipe planner__recipe--41"></div>
+				<div class="planner__recipe planner__recipe--42"></div>
+				<div class="planner__recipe planner__recipe--43"></div>
+				<div class="planner__recipe planner__recipe--44"></div>
+				<div class="planner__recipe planner__recipe--51"></div>
+				<div class="planner__recipe planner__recipe--52"></div>
+				<div class="planner__recipe planner__recipe--53"></div>
+				<div class="planner__recipe planner__recipe--54"></div>
+				<div class="planner__recipe planner__recipe--61"></div>
+				<div class="planner__recipe planner__recipe--62"></div>
+				<div class="planner__recipe planner__recipe--63"></div>
+				<div class="planner__recipe planner__recipe--64"></div>
+				<div class="planner__recipe planner__recipe--71"></div>
+				<div class="planner__recipe planner__recipe--72"></div>
+				<div class="planner__recipe planner__recipe--73"></div>
+				<div class="planner__recipe planner__recipe--74"></div>
+			  </div>
+			</div>
+			<div class="pagination planner__pagination">
+			</div>
+			<div class="planner__date">
+			  <div class="planner__date-label">
+				<div class="planner__date-text">Saturday, 01 Jan 2023</div>
+			  </div>
+			</div>
+		  </section>
+	
+		  <section class="section section__recipe">
+			<h2 class="section__title heading--2">Your recipe</h2>
+	
+			<div class="recipe recipe--white">
+			  <div class="message">
+				<div>
+				  <svg>
+					<use href="../src/assets/img/icons.svg#icon-smile"></use>
+				  </svg>
+				</div>
+				<p>Click on a planned recipe and see indications.</p>
+			  </div>
+			</div>
+		  </section>
+    </div>
+  </body>
+</html>
