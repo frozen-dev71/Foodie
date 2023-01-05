@@ -1,23 +1,10 @@
-$color-primary: #9F221F;
-$color-grad-1: #9F221F;
-$color-grad-2: #cf4846;
-$color-white: #ffffff; //white
-$color-grey-light-1: #f4efec; // Light background
-$color-grey-light-2: #ebe6e5; // Light lines
-$color-grey-light-3: #555d6275; // Light text (placeholder)
-$color-grey-dark-1: #161d21; // Normal text
-$color-grey-dark-2: #363f46; // Lighter text
-
-$gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
-
-$bp-large: 78.15em; // 1250px
-$bp-medium: 61.25em; // 980px
-$bp-small: 37.5em; // 600px
-$bp-smallest: 31.25em; // 500px
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
 
 * {
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s;
 }
 
 *,
@@ -28,49 +15,160 @@ $bp-smallest: 31.25em; // 500px
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; //1 rem=10px
 
-  @media only screen and (max-width: $bp-medium) {
-    font-size: 50%;
+  @include respond(tab-port) {
+    font-size: 50%; // 1 rem = 8px
+  }
+  @include respond(phone) {
+    font-size: 43.75%; // 1 rem = 7px
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; //1 rem =12px
   }
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: $color-grey-dark-1;
-  background-image: $gradient;
+  color: var(--color-text--1);
+  background-image: var(--wrapper-gradient);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: calc(100vh - 2 * 4vw);
 }
 
-.container {
+.container-home {
   max-width: 120rem;
-  min-height: 117rem;
   margin: 4vw auto;
-  background-color: $color-white;
+  min-height: 115rem;
+  background-color: var(--color-background);
   border-radius: 9px;
   overflow: hidden;
-  box-shadow: 0 2rem 6rem 0.5rem rgba($color-grey-dark-1, 0.2);
+  box-shadow: 0 2rem 6rem 0.5rem rgba(#000, 0.2);
 
   display: grid;
-  grid-template-rows: 10rem minmax(60rem, auto);
-  grid-template-columns: 1fr;
-  grid-template-areas: "head head";
+  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'head head'
+    'list recipe';
 
-  @media only screen and (max-width: $bp-large) {
+  @include respond(tab-land) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
   }
+  @include respond(phone) {
+    grid-template-rows: 10rem auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'head'
+      'list'
+      'recipe';
+  }
 }
 
-.content-container {
+.container-pages {
+  max-width: 120rem;
+  margin: 4vw auto;
+  min-height: 100rem;
+  background-color: var(--color-background);
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(#000, 0.2);
+
   display: grid;
-  grid-template-columns: 25% 1fr;
-  @media only screen and (max-width: $bp-medium) {
-    grid-template-columns: 1fr;
+  grid-template-rows: 10rem minmax(100rem, auto);
+  // grid-template-rows: 10rem 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'head'
+    'main';
+
+  @include respond(tab-land) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+  @include respond(phone) {
+    grid-template-rows: 10rem minmax(130rem, auto);
+
+    &__planner {
+      grid-template-rows: 10rem auto;
+    }
+  }
+}
+
+.section {
+  padding: 5rem 8rem 0rem 8rem;
+  // overflow: auto;
+  margin-bottom: 6rem;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 2rem;
+    &::after,
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 35%;
+      height: 1px;
+      background-color: var(--color-text--3);
+      transform: translateY(1.5rem);
+    }
+
+    &::before {
+      float: left;
+    }
+
+    &::after {
+      float: right;
+    }
+
+    @include respond(tab-port) {
+      &::after,
+      &::before {
+        width: 0%;
+      }
+    }
+  }
+  &__shopping-list {
+    @include respond(phone) {
+      margin-top: 3rem;
+    }
+  }
+  &__list {
+    display: grid;
+    justify-items: center;
+  }
+
+  &__planner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    // height: fit-content;
+
+    @include respond(tab-land) {
+      padding: 5rem 5rem 0rem 5rem;
+    }
+    @include respond(phone) {
+      padding: 0;
+      margin-top: 8rem;
+      justify-content: flex-start;
+      height: fit-content;
+    }
+  }
+
+  &__recipe {
+    @include respond(phone) {
+      padding: 0;
+    }
+  }
+
+  &__features {
+    padding: 0;
   }
 }

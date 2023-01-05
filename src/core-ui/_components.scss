@@ -84,7 +84,42 @@
 	}
   
 	&:hover {
-	  background-color: $color-grey-light-2;
+	  color: var(--color-primary-variant);
+	  background-color: var(--color-grey--2);
+	}
+  
+	&:focus {
+	  outline: none;
+	}
+  }
+
+  .btn--week {
+	font-size: 1.3rem;
+	font-weight: 600;
+	border: none;
+	background-color: var(--color-grey--1);
+	color: var(--color-text--1);
+	padding: 1.2rem 1.6rem;
+	border-radius: 10rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	transition: all 0.2s;
+  
+	svg {
+	  height: 1.6rem;
+	  width: 1.6rem;
+	  fill: currentColor;
+	  margin: 0 0.2rem;
+	}
+  
+	span {
+	  text-transform: uppercase;
+	}
+  
+	&:hover {
+	  color: var(--color-primary-variant);
+	  background-color: var(--color-grey--2);
 	}
   
 	&:focus {
@@ -119,7 +154,7 @@
 	svg {
 	  height: 2.5rem;
 	  width: 2.5rem;
-	  fill: $color-white;
+	  fill: var(--color-on-primary);
 	}
   }
   
@@ -136,7 +171,7 @@
 	svg {
 	  height: 100%;
 	  width: 100%;
-	  fill: $color-primary;
+	  fill: var(--color-primary);
 	  transition: all 0.3s;
 	}
   
@@ -158,6 +193,83 @@
 	  margin-right: 0.3rem;
 	}
   }
+
+  .btn--white {
+	align-self: center;
+	width: fit-content;
+	background-image: none;
+	background-color: var(--color-grey--2);
+	color: var(--color-primary);
+  
+	&:not(:last-child) {
+	  margin-bottom: 2rem;
+	}
+  }
+
+  .btn--list {
+	color: var(--color-primary);
+	font-size: 2rem;
+	font-weight: 600;
+	border: none;
+	background-color: var(--color-grey--2);
+	padding: 0.8rem 1rem;
+	border-radius: 1rem;
+	cursor: pointer;
+  
+	display: flex;
+	align-items: center;
+	transition: all 0.2s;
+  
+	&:not(:last-child) {
+	  margin-right: 1rem;
+	}
+  
+	svg {
+	  height: 2.4rem;
+	  width: 2.4rem;
+	  fill: currentColor;
+	  margin: 0 0.2rem;
+	  transform: translateX(2px);
+	}
+  
+	.list__icon--add {
+	  transform: translate(4px, 4px);
+	}
+  
+	span {
+	  margin: 0 3rem;
+	}
+  
+	&:hover {
+	  color: var(--color-primary-variant);
+	  filter: brightness(0.95);
+	}
+  
+	&:focus {
+	  outline: none;
+	}
+  }
+
+  .heading {
+	&--2 {
+	  font-size: 2rem;
+	  font-weight: 700;
+	  color: var(--color-primary);
+	  text-transform: uppercase;
+	  margin-bottom: 2.5rem;
+	  text-align: center;
+	}
+  
+	&--3 {
+	  font-size: 1.6rem;
+	  font-weight: 700;
+	  color: var(--color-text--1);
+	  text-transform: uppercase;
+	  margin: 1.5rem 0;
+	  text-align: center;
+	}
+  }
+
   
   .heading--2 {
 	font-size: 2rem;
@@ -170,7 +282,7 @@
   
   .link:link,
   .link:visited {
-	color: $color-grey-dark-2;
+	color: var(--color-text--2);
   }
   
   .spinner {
@@ -180,7 +292,7 @@
 	svg {
 	  height: 6rem;
 	  width: 6rem;
-	  fill: $color-primary;
+	  fill: var(--color-primary);
 	  animation: rotate 2s infinite linear;
 	}
   }
@@ -215,6 +327,16 @@
 	  font-size: 1.8rem;
 	  line-height: 1.5;
 	  font-weight: 600;
+	  color: var(--color-text--1);
+	}
+
+	a:link,
+	a:visited {
+	  text-decoration: none;
+	  color: var(--color-primary);
+	}
+	a:hover {
+	  text-decoration: underline;
 	}
   }
   
